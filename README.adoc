@@ -1,0 +1,49 @@
+= FizzBuzz as a service
+
+This bootiful application is a Fizz Buzz as a service application.
+
+It should return fizz buzz between 2 integers :
+
+/fb/5 --> Buzz
+/fb/5/6 --> Buzz Fizz
+
+And it should log queries
+
+/fb/log
+
+== Test
+
+[source, shell]
+----
+./mvnw test
+----
+
+== Package
+
+[source, shell]
+----
+./mvnw package
+----
+
+== Run
+
+[source, shell]
+----
+./mvnw spring-boot:run
+curl http://localhost:8888/fb/8
+----
+
+== Build docker image
+
+[source, shell]
+----
+./mvnw compile com.google.cloud.tools:jib-maven-plugin:2.5.0:dockerBuild -Dimage=fbaas:latest
+----
+
+== Run in Docker
+
+[source, shell]
+----
+docker run -it fbaas:latest
+curl http://localhost:80/fb/8
+----
