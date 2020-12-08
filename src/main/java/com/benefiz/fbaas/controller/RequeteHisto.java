@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
-public class RequêteHisto {
+public class RequeteHisto {
 
     private static ArrayList<String> logger = new ArrayList<String>(5000);
 

@@ -1,7 +1,7 @@
 package com.benefiz.fbaas.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -9,20 +9,14 @@ import java.util.Optional;
 @RestController
 public class FizzBuzzController {
 
-    private RequêteHisto requêteHisto = new RequêteHisto();
+    private RequeteHisto requêteHisto = new RequeteHisto();
 
     @GetMapping(value = {"fb/{from}", "fb/{from}/{to}"})
-    public String fizzbuzz(final @PathVariable String from, final @PathVariable Optional<String> to) {
+    public String fizzbuzz(final @RequestParam String from, final @RequestParam Optional<String> to) {
         requêteHisto.getLogs().add(from);
 
-        if (Integer.valueOf(from) % 15 == 0)
-            return "FizzBuzz";
-        else if (Integer.valueOf(from) % 5 == 0)
-            return "Buzz";
-        else if (Integer.valueOf(from) % 3 == 0)
-            return "Fizz";
-        else
-            return from;
+        return (Integer.valueOf(from) % 5 == 0 && Integer.valueOf(from) % 3 == 0) ? "FizzBuzz" : (Integer.valueOf(from) % 5 == 0 ? "Buzz" : (Integer.valueOf(from) % 3 == 0 ? "Fizz" : from));
+
     }
 
 }
