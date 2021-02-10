@@ -5,7 +5,7 @@ This bootiful application is a Fizz Buzz as a service application.
 It should return fizz buzz between 2 integers :
 
 /fb/5 --> Buzz
-/fb/5/6 --> Buzz Fizz
+/fb/5/7 --> Buzz Fizz 7
 
 And it should log queries
 
