@@ -1,2 +1,10 @@
 # don't use 80 port localy because of an error ???
 server.port: 8888
+
+spring:
+##  liquibase:
+##    change-log: db/changelog/changelog-master.xml
+  datasource:
+    url: jdbc:postgresql://test-back-8695.postgresql.a.osc-fr1.scalingo-dbs.com:31646/test_back_8695?sslmode=prefer
+    username: test_app
+    password: $nD*EFaN%$w45UJ4jVHu3$K99r

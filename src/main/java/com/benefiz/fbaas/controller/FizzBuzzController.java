@@ -9,14 +9,12 @@ import java.util.Optional;
 @RestController
 public class FizzBuzzController {
 
-    private RequeteHisto requêteHisto = new RequeteHisto();
+    private RequeteHistoController requêteHisto = new RequeteHistoController();
 
     @GetMapping(value = {"fb/{from}", "fb/{from}/{to}"})
     public String fizzbuzz(final @RequestParam String from, final @RequestParam Optional<String> to) {
-        requêteHisto.getLogs().add(from);
-
+        requêteHisto.log("ip", from, to);
         return (Integer.valueOf(from) % 5 == 0 && Integer.valueOf(from) % 3 == 0) ? "FizzBuzz" : (Integer.valueOf(from) % 5 == 0 ? "Buzz" : (Integer.valueOf(from) % 3 == 0 ? "Fizz" : from));
-
     }
 
 }
