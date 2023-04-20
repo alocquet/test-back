@@ -1,2 +1,10 @@
 # don't use 80 port localy because of an error ???
 server.port: 8888
+
+spring:
+##  liquibase:
+##    change-log: db/changelog/changelog-master.xml
+  datasource:
+    url: jdbc:postgresql://localhost:5555/postgres
+    username: postgres
+    password: secret

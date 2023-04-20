@@ -4,12 +4,20 @@ This bootiful application is a Fizz Buzz as a service application.
 
 It should return fizz buzz between 2 integers :
 
-/fb/5 --> Buzz
-/fb/5/7 --> Buzz Fizz 7
+* /fb/5 --> Buzz **-> Erreur 400**
+* /fb/5/7 --> Buzz Fizz 7
 
 And it should log queries
 
-/fb/log
+* /fb/log
+* /fb/log/1 **-> Erreur 500**
+
+== Start DataBase
+
+[source, shell]
+----
+docker run --rm --name test-postgres -p 5555:5432 -e POSTGRES_PASSWORD=secret postgres
+----
 
 == Test
 
@@ -31,19 +39,4 @@ And it should log queries
 ----
 ./mvnw spring-boot:run
 curl http://localhost:8888/fb/8
-----
-
-== Build docker image
-
-[source, shell]
-----
-./mvnw compile com.google.cloud.tools:jib-maven-plugin:2.5.0:dockerBuild -Dimage=fbaas:latest
-----
-
-== Run in Docker
-
-[source, shell]
-----
-docker run -it fbaas:latest
-curl http://localhost:80/fb/8
 ----
