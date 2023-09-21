@@ -13,6 +13,7 @@ And it should log queries :
 * /fb/log/1
 
 Nothing works : 
+
 * /fb/5 --> generates 400
 * /fb/log/1 --> generates 500
 
