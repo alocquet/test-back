@@ -4,13 +4,17 @@ This bootiful application is a Fizz Buzz as a service application.
 
 It should return fizz buzz between 2 integers :
 
-* /fb/5 --> Buzz **-> Erreur 400**
+* /fb/5 --> Buzz
 * /fb/5/7 --> Buzz Fizz 7
 
-And it should log queries
+And it should log queries :
 
 * /fb/log
-* /fb/log/1 **-> Erreur 500**
+* /fb/log/1
+
+Nothing works : 
+* /fb/5 --> generates 400
+* /fb/log/1 --> generates 500
 
 == Start DataBase
 
